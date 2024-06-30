@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты маршрута</title>
+</head>
+
+<body>
+    <h1>Результаты маршрута</h1>
+
+    {% if shortest_route %}
+    <h2>Кратчайший маршрут:</h2>
+    <p>Расстояние: {{ shortest_route.distance }} км</p>
+    <p>Время: {{ shortest_route.duration }} минут</p>
+    {% endif %} {% if fastest_route %}
+    <h2>Самый быстрый маршрут:</h2>
+    <p>Расстояние: {{ fastest_route.distance }} км</p>
+    <p>Время: {{ fastest_route.duration }} минут</p>
+    {% endif %}
+
+    <!-- Пример использования div для отображения карты -->
+    <div id="map" style="width: 100%; height: 600px;">
+        {{ map_html | safe }}
+    </div>
+</body>
+
+</html>
